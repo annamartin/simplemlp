@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE knimeNode PUBLIC "-//UNIKN//DTD KNIME Node 2.0//EN" "http://www.knime.org/Node.dtd">
+<knimeNode icon="./mlp.png" type = "Learner">
+<name>Simple MLP</name>
+<shortDescription>
+	    Builds and learns an MLP with backpropagation.
+	</shortDescription>
+	<fullDescription>
+	<intro>		
+	Implementation of multilayer feedforward artificial neural network with one hidden layer. 
+	The MLP uses hyperbolic tangent activation function and learns through backpropagation algorithm.
+	This node provides a view of the error plot. <br />
+	
+	</intro>
+	<option name="Maximum number of iterations">
+	The number of learning iterations.
+    </option>
+    <option name="Number of hidden layers">
+	Specifies the number of hidden layers in the architecture of the neural
+	network.
+    </option>
+    <option name="Class column">
+	Choose the column that contains the target variable: it can either be 
+	nominal or numerical. All nominal class values are extracted and assigned to 
+	output neurons.
+	If you use a numerical target variable (regression), please make sure it is normalized!
+    </option>
+    <option name="Ignore missing values">
+	If this checkbox is set, rows with missing values will not be used for 
+	training.
+    </option>
+    <option name="Use seed for random initialization">
+    If this checkbox is set, a seed (see next field) can be set for initializing the weights and thresholds can be set.
+    </option>
+    <option name="Random seed">
+    Seed for the random number generator.
+    </option>
+    </fullDescription>
+    <ports>
+		<inPort index="0" name = "Training Data">Datatable with training data</inPort>
+		<inPort index="1" name = "Test Data">Datatable with test data</inPort>
+		<outPort index="0" name = "Classified Data">Datatable with prediction</outPort>
+		</ports>
+    <views>
+    <view index="0" name="Error Plot">
+			Displays the error for each iteration.
+		</view>
+		</views>
+		</knimeNode>
